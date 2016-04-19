@@ -1,0 +1,9 @@
+<!-- insert_before '[data-hook="admin_store_form_fields"] .row' -->
+
+<div class="four columns">
+  <%= f.field_container :order_number_prefix do %>
+    <%= f.label :order_number_prefix, Spree.t(:store_order_number_prefix) %><br />
+    <%= f.text_field :order_number_prefix, class: 'fullwidth' %>
+    <%= error_message_on :store, :order_number_prefix %>
+  <% end %>
+</div>
