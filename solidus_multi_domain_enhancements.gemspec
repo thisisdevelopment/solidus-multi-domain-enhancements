@@ -1,13 +1,12 @@
 # encoding: UTF-8
-# $:.push File.expand_path('../lib', __FILE__)
-# require 'solidus_multi_domain_enhancements/version'
+$:.push File.expand_path('../lib', __FILE__)
+require 'solidus_multi_domain_enhancements/version'
 
 Gem::Specification.new do |s|
   s.name        = 'solidus_multi_domain_enhancements'
-  # s.version     = SolidusMultiDomainEnhancements::VERSION
-  s.version     = '0.0.1'
-  s.summary     = 'TODO'
-  s.description = 'TODO'
+  s.version     = SolidusMultiDomainEnhancements::VERSION
+  s.summary     = 'Add additional configuration to the MultiTenency Solidus install'
+  s.description = s.summary
   s.license     = 'BSD-3-Clause'
 
   s.author    = 'Seb Ashton'
