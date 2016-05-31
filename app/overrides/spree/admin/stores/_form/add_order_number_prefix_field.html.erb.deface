@@ -7,3 +7,11 @@
     <%= error_message_on :store, :order_number_prefix %>
   <% end %>
 </div>
+
+<div class="four columns">
+  <%= f.field_container :default_locale do %>
+    <%= f.label :default_locale, Spree.t(:store_default_locale) %><br />
+    <%= f.text_field :default_locale, class: 'fullwidth' %>
+    <%= error_message_on :store, :default_locale %>
+  <% end %>
+</div>
