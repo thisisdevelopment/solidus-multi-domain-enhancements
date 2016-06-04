@@ -15,3 +15,11 @@
     <%= error_message_on :store, :default_locale %>
   <% end %>
 </div>
+
+<div class="four columns">
+  <%= f.field_container :timezone do %>
+    <%= f.label :timezone %><br />
+    <%= f.select :timezone, TZInfo::Timezone.all_identifiers, { include_blank: Spree.t('match_choices.none') }, { class: 'select2 fullwidth' } %>
+    <%= error_message_on :store, :timezone %>
+  <% end %>
+</div>
