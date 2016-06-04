@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'solidus_core', '1.2'
   s.add_dependency 'solidus_multi_domain', '~> 1.1'
+  s.add_dependency 'tzinfo', '~> 1.1'
 
   s.add_development_dependency 'capybara'
   s.add_development_dependency 'poltergeist'

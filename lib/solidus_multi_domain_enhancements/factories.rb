@@ -7,5 +7,9 @@ FactoryGirl.modify do
     trait :with_default_locale do
       default_locale 'fr'
     end
+
+    trait :with_timezone do
+      timezone 'Europe/Amsterdam'
+    end
   end
 end

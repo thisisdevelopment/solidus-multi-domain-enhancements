@@ -11,6 +11,7 @@ module SolidusMultiDomainEnhancements
 
     initializer 'solidus_multi_domain_enhancements.permitted_attributes', after: :load_config_initializers do
       Spree::PermittedAttributes.store_attributes << :default_locale
+      Spree::PermittedAttributes.store_attributes << :timezone
       Spree::PermittedAttributes.store_attributes << :order_number_prefix
     end
 
@@ -18,6 +19,8 @@ module SolidusMultiDomainEnhancements
       Spree::Order.prepend(SolidusMultiDomainEnhancements::OrderAttributes)
 
       Spree::Store.include(SolidusMultiDomainEnhancements::StoreAttributes)
+
+      Spree::StoreHelper.include(SolidusMultiDomainEnhancements::StoreTimezoneHelper)
 
       Dir.glob(File.join(File.dirname(__FILE__), '../../app/overrides/*.rb')) do |c|
         Rails.configuration.cache_classes ? require(c) : load(c)
