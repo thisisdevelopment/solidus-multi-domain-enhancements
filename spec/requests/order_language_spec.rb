@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'language attribute within the orders API' do
+xdescribe 'language attribute within the orders API' do
   let(:store) { create(:store) }
   let(:user) { create(:user).tap(&:generate_spree_api_key!) }
   let(:order) { create(:order_with_line_items, user: user) }
