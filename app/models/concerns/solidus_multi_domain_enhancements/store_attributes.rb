@@ -8,7 +8,7 @@ module SolidusMultiDomainEnhancements
     end
 
     def order_number_prefix
-      self[:order_number_prefix] || 'R'
+      self[:order_number_prefix] || Spree::MultiDomainConfig[:order_number_prefix]
     end
 
     def default_locale
@@ -16,7 +16,7 @@ module SolidusMultiDomainEnhancements
     end
 
     def timezone
-      self[:timezone] || 'Europe/London'
+      self[:timezone] || Spree::MultiDomainConfig[:timezone]
     end
   end
 end

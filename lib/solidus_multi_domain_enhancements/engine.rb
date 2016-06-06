@@ -9,6 +9,10 @@ module SolidusMultiDomainEnhancements
       g.test_framework :rspec
     end
 
+    initializer 'solidus_multi_domain_enhancements.environment', before: 'spree.environment' do
+      Spree::MultiDomainConfig = Spree::MultiDomainConfiguration.new
+    end
+
     initializer 'solidus_multi_domain_enhancements.permitted_attributes', after: :load_config_initializers do
       Spree::PermittedAttributes.store_attributes << :default_locale
       Spree::PermittedAttributes.store_attributes << :timezone
