@@ -3,9 +3,12 @@ module SolidusMultiDomainEnhancements
     extend ActiveSupport::Concern
 
     included do
-      validates :order_number_prefix, uniqueness: true
       validates :default_locale, format: { without: /\s/ }
       validates :timezone, inclusion: { in: TZInfo::Timezone.all_identifiers }
+    end
+
+    def order_number_prefix
+      self[:order_number_prefix] || 'R'
     end
 
     def default_locale
