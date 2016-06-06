@@ -1,7 +1,15 @@
-SolidusMultiDomainEnhancements
+Solidus Multi Domain Enhancements
 ==============================
 
 [![Build Status](https://travis-ci.org/madetech/solidus_multi_domain_enhancements.svg?branch=master)](https://travis-ci.org/madetech/solidus_multi_domain_enhancements) [![Code Climate](https://codeclimate.com/github/madetech/solidus_multi_domain_enhancements/badges/gpa.svg)](https://codeclimate.com/github/madetech/solidus_multi_domain_enhancements) [![Test Coverage](https://codeclimate.com/github/madetech/solidus_multi_domain_enhancements/badges/coverage.svg)](https://codeclimate.com/github/madetech/solidus_multi_domain_enhancements/coverage)
+
+Adds additional attributes to the core Store model.
+
+Provides theses additional attributes:
+
+  - `timezone`
+  - `order_number_prefix`
+  - `default_locale`
 
 Installation
 ------------
@@ -18,6 +26,17 @@ Bundle your dependencies and run the installation generator:
 bundle
 bundle exec rails g solidus_multi_domain_enhancements:install
 ```
+
+Configuration
+-------------
+The default values for `timezone`, and `order_number_prefix` are preferences which are by default are set to:
+
+| Preference            | Default       |
+|-----------------------|---------------|
+| `timezone`            | Europe/London |
+| `order_number_prefix` | R             |
+
+To override these defaults set `Spree::MultiDomainConfig[:timezone]` and `Spree::MultiDomainConfig[:order_number_prefix]` in `config/initializers/spree.rb`
 
 Testing
 -------
