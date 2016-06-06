@@ -1,7 +1,7 @@
 SolidusMultiDomainEnhancements
 ==============================
 
-Introduction goes here.
+[![Build Status](https://travis-ci.org/madetech/solidus_multi_domain_enhancements.svg?branch=master)](https://travis-ci.org/madetech/solidus_multi_domain_enhancements) [![Code Climate](https://codeclimate.com/github/madetech/solidus_multi_domain_enhancements/badges/gpa.svg)](https://codeclimate.com/github/madetech/solidus_multi_domain_enhancements) [![Test Coverage](https://codeclimate.com/github/madetech/solidus_multi_domain_enhancements/badges/coverage.svg)](https://codeclimate.com/github/madetech/solidus_multi_domain_enhancements/coverage)
 
 Installation
 ------------
