@@ -2,6 +2,7 @@ FROM madetech/rails-deps
 
 RUN mkdir -p /app
 WORKDIR /app
+COPY lib/solidus_multi_domain_enhancements/version.rb ./lib/solidus_multi_domain_enhancements/version.rb
 COPY Gemfile Gemfile.lock solidus_multi_domain_enhancements.gemspec ./
 RUN bundle install --jobs 20 --retry 5
 EXPOSE 3000
