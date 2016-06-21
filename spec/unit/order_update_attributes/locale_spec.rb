@@ -1,5 +1,6 @@
 describe Spree::OrderUpdateAttributes do
-  let(:order) { create(:order) }
+  let(:store) { create(:store, :with_default_locale) }
+  let(:order) { create(:order, store: store) }
   let(:request_env) { nil }
   let(:update) { described_class.new(order, attributes, request_env: request_env) }
 
@@ -7,9 +8,11 @@ describe Spree::OrderUpdateAttributes do
     {}
   end
 
-  context 'setting current store locale' do
-    subject { order.locale }
+  subject { order.locale }
 
+  it { is_expected.to eq(:fr) }
+
+  context 'setting current store locale' do
     around do |example|
       I18n.locale = :es
       example.run
@@ -21,6 +24,6 @@ describe Spree::OrderUpdateAttributes do
       order.reload
     end
 
-    it { is_expected.to eq('es') }
+    it { is_expected.to eq(:es) }
   end
 end
