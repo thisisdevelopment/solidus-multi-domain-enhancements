@@ -22,6 +22,8 @@ module SolidusMultiDomainEnhancements
     def self.activate
       Spree::Order.prepend(SolidusMultiDomainEnhancements::OrderAttributes)
 
+      Spree::OrderUpdateAttributes.prepend(SolidusMultiDomainEnhancements::OrderUpdateAttributes)
+
       Spree::Store.include(SolidusMultiDomainEnhancements::StoreAttributes)
 
       Spree::StoreHelper.include(SolidusMultiDomainEnhancements::StoreTimezoneHelper)
