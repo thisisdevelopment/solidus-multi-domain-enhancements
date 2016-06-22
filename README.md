@@ -10,6 +10,7 @@ Provides theses additional attributes:
   - `timezone`
   - `order_number_prefix`
   - `default_locale`
+  - `currency_symbol_first`
 
 Adds additional attributes to the core Order model.
 

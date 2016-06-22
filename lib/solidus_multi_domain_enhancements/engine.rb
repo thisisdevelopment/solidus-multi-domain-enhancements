@@ -17,18 +17,19 @@ module SolidusMultiDomainEnhancements
       Spree::PermittedAttributes.store_attributes << :default_locale
       Spree::PermittedAttributes.store_attributes << :timezone
       Spree::PermittedAttributes.store_attributes << :order_number_prefix
+      Spree::PermittedAttributes.store_attributes << :currency_symbol_first
     end
 
     def self.activate
       Spree::Order.prepend(SolidusMultiDomainEnhancements::OrderAttributes)
-
       Spree::OrderUpdateAttributes.prepend(SolidusMultiDomainEnhancements::OrderUpdateAttributes)
-
       Spree::Store.include(SolidusMultiDomainEnhancements::StoreAttributes)
 
       Spree::StoreHelper.include(SolidusMultiDomainEnhancements::StoreTimezoneHelper)
-
       Spree::BaseMailer.include(SolidusMultiDomainEnhancements::BaseMailerHelpers)
+
+      Spree::Api::BaseController.include(SolidusMultiDomainEnhancements::CurrencySymbolPosition)
+      Spree::BaseController.include(SolidusMultiDomainEnhancements::CurrencySymbolPosition)
 
       Dir.glob(File.join(File.dirname(__FILE__), '../../app/overrides/*.rb')) do |c|
         Rails.configuration.cache_classes ? require(c) : load(c)
