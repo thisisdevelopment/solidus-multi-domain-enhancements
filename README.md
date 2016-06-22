@@ -11,6 +11,10 @@ Provides theses additional attributes:
   - `order_number_prefix`
   - `default_locale`
 
+Adds additional attributes to the core Order model.
+
+  - `locale` - which is set using the current I18n.locale during checkout
+
 Installation
 ------------
 
@@ -55,4 +59,4 @@ Simply add this require statement to your spec_helper:
 require 'solidus_multi_domain_enhancements/factories'
 ```
 
-Copyright (c) 2016 [name of extension creator], released under the New BSD License
+Copyright (c) 2016 [Made Tech](https://www.madetech.com), released under the New BSD License
