@@ -21,6 +21,10 @@ module SolidusMultiDomainEnhancements
       end
     end
 
+    def locale
+      self[:locale].try(:to_sym) || store.try(:default_locale)
+    end
+
     private
 
     def order_prefix
