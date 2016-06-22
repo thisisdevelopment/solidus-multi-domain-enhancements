@@ -1,6 +1,17 @@
 <!-- insert_before '[data-hook="admin_store_form_fields"] .row' -->
 
 <div class="four columns">
+  <%= f.field_container :currency_symbol_first do %>
+    <%= f.label :currency_symbol_first, Spree.t(:currency_symbol_first) %>
+    <ul>
+      <li><%= f.radio_button :currency_symbol_first, "true", :class => 'fullwidth' %> <%= Spree.t(:say_yes) %></li>
+      <li><%= f.radio_button :currency_symbol_first, "false", :class => 'fullwidth' %> <%= Spree.t(:say_no) %></li>
+    </ul>
+    <%= error_message_on :store, :currency_symbol_first %>
+  <% end %>
+</div>
+
+<div class="four columns">
   <%= f.field_container :order_number_prefix do %>
     <%= f.label :order_number_prefix, Spree.t(:store_order_number_prefix) %><br />
     <%= f.text_field :order_number_prefix, class: 'fullwidth' %>
