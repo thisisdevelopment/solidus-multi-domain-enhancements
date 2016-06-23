@@ -1,13 +1,13 @@
 <!-- insert_before '[data-hook="admin_store_form_fields"] .row' -->
 
 <div class="four columns">
-  <%= f.field_container :currency_symbol_first do %>
-    <%= f.label :currency_symbol_first, Spree.t(:currency_symbol_first) %>
+  <%= f.field_container :currency_symbol_before do %>
+    <%= f.label :currency_symbol_before, Spree.t(:currency_symbol_before) %>
     <ul>
-      <li><%= f.radio_button :currency_symbol_first, "true", :class => 'fullwidth' %> <%= Spree.t(:say_yes) %></li>
-      <li><%= f.radio_button :currency_symbol_first, "false", :class => 'fullwidth' %> <%= Spree.t(:say_no) %></li>
+      <li><%= f.radio_button :currency_symbol_before, "true", :class => 'fullwidth' %> <%= Spree.t(:say_yes) %></li>
+      <li><%= f.radio_button :currency_symbol_before, "false", :class => 'fullwidth' %> <%= Spree.t(:say_no) %></li>
     </ul>
-    <%= error_message_on :store, :currency_symbol_first %>
+    <%= error_message_on :store, :currency_symbol_before %>
   <% end %>
 </div>
 

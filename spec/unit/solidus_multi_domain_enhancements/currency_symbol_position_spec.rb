@@ -17,13 +17,13 @@ describe SolidusMultiDomainEnhancements::CurrencySymbolPosition, type: :controll
     get :fake_index
   end
 
-  subject { Spree::Money.default_formatting_rules[:sign_before_symbol] }
+  subject { Spree::Money.default_formatting_rules[:symbol_position] }
 
-  it { is_expected.to eq(true) }
+  it { is_expected.to eq(:before) }
 
-  context 'when currency_symbol_first is false' do
-    let(:store) { create(:store, :with_currency_symbol_last) }
+  context 'when currency_symbol_before is false' do
+    let(:store) { create(:store, :with_currency_symbol_after) }
 
-    it { is_expected.to eq(false) }
+    it { is_expected.to eq(:after) }
   end
 end

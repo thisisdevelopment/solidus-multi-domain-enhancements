@@ -8,8 +8,8 @@ FactoryGirl.modify do
       default_locale 'fr'
     end
 
-    trait :with_currency_symbol_last do
-      currency_symbol_first false
+    trait :with_currency_symbol_after do
+      currency_symbol_before false
     end
 
     trait :with_timezone do

@@ -17,7 +17,7 @@ module SolidusMultiDomainEnhancements
       Spree::PermittedAttributes.store_attributes << :default_locale
       Spree::PermittedAttributes.store_attributes << :timezone
       Spree::PermittedAttributes.store_attributes << :order_number_prefix
-      Spree::PermittedAttributes.store_attributes << :currency_symbol_first
+      Spree::PermittedAttributes.store_attributes << :currency_symbol_before
     end
 
     def self.activate
