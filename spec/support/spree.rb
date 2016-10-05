@@ -6,6 +6,7 @@ require 'spree/testing_support/preferences'
 require 'spree/testing_support/url_helpers'
 
 require 'solidus_multi_domain_enhancements/factories'
+require 'spree_multi_domain/testing_support/factory_overrides'
 
 RSpec.configure do |config|
   config.include Spree::TestingSupport::Preferences
