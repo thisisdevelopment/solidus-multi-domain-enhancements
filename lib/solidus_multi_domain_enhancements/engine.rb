@@ -1,6 +1,7 @@
 module SolidusMultiDomainEnhancements
   class Engine < Rails::Engine
     require 'spree/core'
+    require 'solidus_multi_domain'
     isolate_namespace Spree
     engine_name 'solidus_multi_domain_enhancements'
 
