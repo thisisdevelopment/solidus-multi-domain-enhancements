@@ -10,6 +10,5 @@ module SolidusMultiDomainEnhancements
       @shipping_methods = current_store.shipping_methods
       respond_with(@shipping_methods)
     end
-
   end
 end
