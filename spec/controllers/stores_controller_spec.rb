@@ -1,26 +1,19 @@
-describe 'Shipment method shipping rates', type: :request do
-  let(:store) { create(:store) }
-  let(:user) { create(:user).tap(&:generate_spree_api_key) }
+module Spree
+  describe Api::StoresController, type: :controller do
+    render_views
 
-  let(:shipping_method) do
-    create(:shipping_method, cost: 10.00)
-  end
+    let!(:store) { create(:store, :with_shipping_methods) }
+    let(:user) { create(:admin_user).tap(&:generate_spree_api_key!) }
 
-  let(:cheap_shipping_method) do
-    create(:shipping_method, cost: 1.00)
-  end
+    before do
+      get :shipping_methods, token: user.spree_api_key, format: :json
+    end
 
-  before do
-    user.generate_spree_api_key!
-    get("/api/store/shipping_methods", token: user.spree_api_key)
-  end
+    it 'displays the available shipping methods' do
+      shipping_methods = JSON.parse(response.body)
 
-  it 'displays the available shipping methods' do
-    shipping_methods = JSON.parse(response.body)
-
-    p shipping_methods
-
-    expect(shipping_methods.map(&:keys).flatten.uniq).to include('cost')
-    expect(shipping_methods.map{ |s| s['cost'] }.flatten.uniq).to include(10.00)
+      expect(shipping_methods['shipping_methods'].map(&:keys).flatten.uniq).to include('amount')
+      expect(shipping_methods['shipping_methods'].map{ |s| s['amount'] }.flatten.uniq).to include('10.0')
+    end
   end
 end
