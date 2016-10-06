@@ -1,3 +1,4 @@
+require 'pry'
 describe SolidusMultiDomainEnhancements::CurrencySymbolPosition, type: :controller do
   let(:store) { create(:store) }
 
@@ -10,11 +11,9 @@ describe SolidusMultiDomainEnhancements::CurrencySymbolPosition, type: :controll
   end
 
   before do
-    expect(controller).to receive(:current_store).and_return(store)
-
     routes.draw { get 'fake_index' => 'anonymous#fake_index' }
 
-    get :fake_index
+    get :fake_index, server_name: store.name
   end
 
   subject { Spree::Money.default_formatting_rules[:symbol_position] }
