@@ -15,5 +15,15 @@ FactoryGirl.modify do
     trait :with_timezone do
       timezone 'Europe/Amsterdam'
     end
+
+    trait :with_shipping_methods do
+      transient do
+        shipping_methods { create_list(:shipping_method, 2) }
+      end
+
+      after(:create) do |store, evaluator|
+        store.shipping_methods << evaluator.shipping_methods
+      end
+    end
   end
 end

@@ -1,6 +1,7 @@
 module SolidusMultiDomainEnhancements
   class Engine < Rails::Engine
     require 'spree/core'
+    require 'solidus_multi_domain'
     isolate_namespace Spree
     engine_name 'solidus_multi_domain_enhancements'
 
@@ -29,6 +30,7 @@ module SolidusMultiDomainEnhancements
       Spree::BaseMailer.include(SolidusMultiDomainEnhancements::BaseMailerHelpers)
 
       Spree::Api::BaseController.include(SolidusMultiDomainEnhancements::CurrencySymbolPosition)
+      Spree::Api::StoresController.include(SolidusMultiDomainEnhancements::ShowShippingMethods)
       Spree::BaseController.include(SolidusMultiDomainEnhancements::CurrencySymbolPosition)
 
       Dir.glob(File.join(File.dirname(__FILE__), '../../app/overrides/*.rb')) do |c|
