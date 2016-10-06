@@ -1,4 +1,3 @@
-require 'pry'
 describe SolidusMultiDomainEnhancements::CurrencySymbolPosition, type: :controller do
   let(:store) { create(:store) }
 
