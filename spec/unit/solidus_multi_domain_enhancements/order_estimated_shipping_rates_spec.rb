@@ -6,7 +6,6 @@ module Spree
     let(:user) { create(:admin_user).tap(&:generate_spree_api_key!) }
     let(:order) { create(:order_with_line_items, store: store) }
 
-
     before do
       get :estimate_shipping_rates, id: order.number, token: user.spree_api_key, format: :json
     end

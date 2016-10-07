@@ -1,6 +1,5 @@
 describe SolidusMultiDomainEnhancements::EstimateShippingRates do
   let(:klass) { described_class.new(order, [shipping_method]) }
-
   let(:order) { create(:order_with_line_items, line_items_count: 2) }
   let(:shipping_method) { create(:shipping_method) }
 
