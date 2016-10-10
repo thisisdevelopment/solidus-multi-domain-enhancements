@@ -31,4 +31,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rubocop', '0.37.2'
   s.add_development_dependency 'rubocop-rspec', '1.4.0'
   s.add_development_dependency 'sqlite3'
+  s.add_development_dependency 'pry'
 end

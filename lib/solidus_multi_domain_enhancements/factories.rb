@@ -27,3 +27,18 @@ FactoryGirl.modify do
     end
   end
 end
+
+FactoryGirl.define do
+  factory :shipping_flat_percentage_calculator, class: Spree::Calculator::Shipping::FlatPercentItemTotal do
+    preferred_flat_percent 10
+  end
+
+  factory :shipping_per_item_calculator, class: Spree::Calculator::Shipping::PerItem do
+    preferred_amount 2
+  end
+
+  factory :shipping_flexi_rate_calculator, class: Spree::Calculator::Shipping::FlexiRate do
+    preferred_first_item 10
+    preferred_additional_item 1
+  end
+end

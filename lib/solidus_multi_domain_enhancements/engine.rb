@@ -30,8 +30,9 @@ module SolidusMultiDomainEnhancements
       Spree::BaseMailer.include(SolidusMultiDomainEnhancements::BaseMailerHelpers)
 
       Spree::Api::BaseController.include(SolidusMultiDomainEnhancements::CurrencySymbolPosition)
-      Spree::Api::StoresController.include(SolidusMultiDomainEnhancements::ShowShippingMethods)
       Spree::BaseController.include(SolidusMultiDomainEnhancements::CurrencySymbolPosition)
+
+      Spree::Api::OrdersController.prepend(SolidusMultiDomainEnhancements::OrderEstimatedShippingRates)
 
       Dir.glob(File.join(File.dirname(__FILE__), '../../app/overrides/*.rb')) do |c|
         Rails.configuration.cache_classes ? require(c) : load(c)
