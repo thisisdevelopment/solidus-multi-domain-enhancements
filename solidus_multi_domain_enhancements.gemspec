@@ -21,7 +21,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'tzinfo', '~> 1.1'
 
   s.add_development_dependency 'capybara'
-  s.add_development_dependency 'codeclimate-test-reporter'
   s.add_development_dependency 'poltergeist'
   s.add_development_dependency 'coffee-rails'
   s.add_development_dependency 'sass-rails'

@@ -34,6 +34,9 @@ module SolidusMultiDomainEnhancements
 
       Spree::Api::OrdersController.prepend(SolidusMultiDomainEnhancements::OrderEstimatedShippingRates)
 
+      Spree::Order.whitelisted_ransackable_attributes << 'store_id'
+      Spree::Admin::OrdersController.include(SolidusMultiDomainEnhancements::StoreAwareAdminOrders)
+
       Dir.glob(File.join(File.dirname(__FILE__), '../../app/overrides/*.rb')) do |c|
         Rails.configuration.cache_classes ? require(c) : load(c)
       end
