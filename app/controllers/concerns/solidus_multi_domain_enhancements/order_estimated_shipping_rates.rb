@@ -7,8 +7,7 @@ module SolidusMultiDomainEnhancements
 
       available_shipping_methods = current_store
         .shipping_methods
-        .where
-        .not(display_on: 'back_end')
+        .select(&:available_to_users?)
 
       @estimate_package = SolidusMultiDomainEnhancements::EstimateShippingRates
         .new(@order, available_shipping_methods)
