@@ -20,7 +20,7 @@ module SolidusMultiDomainEnhancements
     private
 
     def amount(shipping_method)
-      shipping_method.calculator.compute_package(self)
+      Spree::Money.new(shipping_method.calculator.compute_package(self), currency: @order.currency)
     end
   end
 end
